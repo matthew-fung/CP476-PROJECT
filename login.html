@@ -3,20 +3,24 @@
 <head>
     <meta charset="utf-8" />
     <title>BeforeYouDrive.io Log In</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/login.css" />
 </head>
 <body>
+  <main>
+    <h2> Register </h2>
+    <h3> Create an account to record your results </h3>
     <form action= ""> <!-- change to home page -->
         <div class="username">
-        <label for="name">Email</label>
-    <input type="email" name="login" id="username" required>
-    </div>
-    <div class="password">
-    <label for="name">Password</label>
-    <input type="password" name="login" id="password" required minlength="8">
-    </div>
-    <input type="submit" value="Log In" >
+        <input type="text" name="login" id="username" value = "Username" required>
+        </div>
+        <div class="password">
+        <input type="password" name="login" id="password" value = "Password" required minlength="8">
+        </div>
+        <div class="email">
+        <input type="email" name="login" id="email" value = "Email" required>
+        </div>
+        <input type="submit" value="Sign Up" >
     </form>
+  </main>
 </body>
 </html>
