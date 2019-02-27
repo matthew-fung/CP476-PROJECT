@@ -3,15 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <title>BeforeYouDrive.io Home</title>
-    <link rel="stylesheet" type="text/css" media="screen" href="styles/play.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
 </head>
 <body>
   <main>
-    <h2>Question 1:</h2>
-    <h3 style = "font-weight: normal">What is 5 x 12?</h3>
+    <h2 id= questionNo>Question 1:</h2>
+    <h3 id = "question" style = "font-weight: normal">What is 5 x 12?</h3>
     <!-- img src = "supporting-image.jpg" -->
-    <input id = "answer" type = "text">Question 1: </button> <br>
-    <button class = "button2">Next</button>
+    <input id = "answer" type = "text"> <br>
+    <input type = "button" class = "button2" id = "nextButton" value = "Next">
+
   </main>
+
+  <script src="js/play.js"></script>
 </body>
 </html>
