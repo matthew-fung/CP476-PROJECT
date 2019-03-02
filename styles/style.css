@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Tinos:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+
+body {
+    margin: 0%;
+    text-align: center;
+}
+
+#button1 {
+    background-color: red;
+}
+
+#button2 {
+    background-color: blue;
+}
+
+input {
+    font-family: 'Tinos', sans-serif;
+}
+
+.qInput {
+    width: 300px;
+    height: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.button {
+    font-family: 'Tinos', sans-serif;
+/*    background-color: #EF5B5B;*/
+    color: #EAEAEA;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+}
+
+.questionNo {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+}
+
+.question {
+    font-family: 'Tinos', sans-serif;
+    font-size: 2em;
+}
+
+p {
+    margin:0;
+    color: #EAEAEA;
+}
+
+.logo {
+    height:100px;
+}
+
+.imgsize{
+    height:200px;
+}
+
+.qimg{
+    height:300px;
+}
+
+.resultsTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 5em;
+}
+
+.resultsDesc {
+    font-family: 'Tinos', sans-serif;
+    font-size: 3em;
+}
+
+#resultsBtn {
+    color: #EAEAEA;
+    text-align: center;
+    border: none;
+    font-size: 30px;
+    height: 50px;
+    width: 200px;
+}
+
+.dot {
+  height: 300px;
+  width: 300px;
+  background-color: #EF5B5B;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.username {
+    background-image: url(/assets/icons/solid/user-alt.svg);
+    background-repeat: no-repeat;
+    padding-left:20px;
+    color: gray;
+}
+
+.password {
+    background-image: url(/assets/icons/solid/key.svg);
+    background-repeat: no-repeat;
+    padding-left:20px;
+}
