@@ -5,15 +5,18 @@
     <title>BeforeYouDrive.io</title>
     <link rel="stylesheet" type="text/css" media="screen" href="styles/style.css" />
 </head>
-<body>
-  <main>
-    <p>Login</p>
-    <p>Log in to play and access your results</p>
-    <form action= "home.html">
-        <input type="text" class="username" name="username" value="Username" required> <br>
-        <input type="password" class="password" name="password" placeholder="Password" required minlength="8"> <br>
-        <input type="submit" value="Log In" >
-    </form>
-  </main>
+
+<body class="gradientbg">
+    <main>
+        <h1>Login</h1>
+        <h4>Log in to play and access your results</h4>
+        <form action="home.html">
+            <div class="logindiv">
+                <input type="text" class="userinput" name="username" placeholder="Username" required><br>
+                <input type="password" class="userinput" name="password" placeholder="Password" required minlength="8"><br>
+                <input class="button" style="background-color: #EF5B5B;" type="submit" value="Log In">
+            </div>
+        </form>
+    </main>
 </body>
 </html>
