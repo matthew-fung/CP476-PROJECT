@@ -1,7 +1,8 @@
 /**
  * Play1.js - Handles gameplay for play1.html
  */
-// Set this to false before production - this outputs each step to console
+
+//TODO: Set this to false before production - this outputs each step to console
 let debug = true;
 
  /**
@@ -10,7 +11,7 @@ let debug = true;
   * @return: randomValue - Random number between 0 and maxValue (int)
   */
 function getRandomValue() {
-    let maxValue = 20;
+    let maxValue = 12;
     let randomValue = Math.floor(Math.random() * Math.floor(maxValue));
     return randomValue;
 };
@@ -32,36 +33,57 @@ function validateAnswer(value1, value2, userAnswer) {
     return isCorrect;
 };
 
+/**
+ * Starts the game time countdown
+ * @param: duration - game time (int)
+ * @param: display - 
+ */
+function startCountdown(duration) {
+    var timer = duration, seconds;
+    setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+        document.querySelector('#questionTime').textContent = seconds;
 
-// generate question values
-var value1 = getRandomValue();
-var value2 = getRandomValue();
-
-// change html to display value1 and value 2 in the question
-document.getElementById('value1').innerHTML = value1;
-document.getElementById('value2').innerHTML = value2;
-
-
-if(debug == true) {
-    console.log('value 1:' + value1);
-    console.log('value 2:' + value2);
-;}
-
-// get user's answer
-
-// check if submit button is clicked
-document.getElementById('qButton').onclick = function() {
-    var userAnswer = document.getElementById('qInput').value;
-    if(userAnswer == '' ) {
-        if(debug == true) {
-            console.log('empty answer');
-        };
-    } else {
-        var isCorrect = validateAnswer(value1, value2, userAnswer);
-        if (debug == true) {
-             console.log('is the users answer correct? ' + isCorrect);
-        };
-         
-    }
+        if(timer > 0 ) {
+            timer--;
+        }
+    }, 1000);
 };
+
+
+window.onload = function () {
+
+    //start game timer countdown
+    var duration = 7; 
+    startCountdown(duration);
+
+    // generate question values
+    var value1 = getRandomValue();
+    var value2 = getRandomValue();
+
+    // change html to display value1 and value 2 in the question
+    document.getElementById('value1').innerHTML = value1;
+    document.getElementById('value2').innerHTML = value2;
+    if (debug == true) {
+        console.log('value 1:' + value1);
+        console.log('value 2:' + value2);;
+    };
+
+    // check if submit button is clicked
+    document.getElementById('qButton').onclick = function () {
+        var userAnswer = document.getElementById('qInput').value;
+        if (userAnswer == '') {
+            if (debug == true) {
+                console.log('empty answer');
+            };
+        } else {
+            var isCorrect = validateAnswer(value1, value2, userAnswer);
+            if (debug == true) {
+                console.log('is the users answer correct? ' + isCorrect);
+            };
+
+        };
+    };
+};
+
     
