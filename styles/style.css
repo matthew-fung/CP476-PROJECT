@@ -6,66 +6,126 @@ body {
     text-align: center;
 }
 
-#button1 {
-    background-color: red;
+.gradientbg {
+    background-image: url(/assets/gradient-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#button2 {
-    background-color: blue;
+#homebg {
+    background-image: url(/assets/gradient2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#sharebg {
+    background-image: url(/assets/gradient3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 input {
     font-family: 'Tinos', sans-serif;
 }
 
+.logindiv {
+    margin: 0 450px;
+    padding: 50px 0;
+    background-color: rgb(234, 234, 234);
+}
+
+.brandicons {
+    margin: 30px 0;
+    height: 40px;
+}
+
+.userinput {
+    width: 200px;
+    height: 30px;
+    padding-left: 20px;
+    font-size: 1em;
+    margin-bottom: 30px;
+    color: #EF5B5B;
+}
+
+::placeholder {
+    color: rgb(236, 236, 236);
+}
+
 .qInput {
-    width: 300px;
-    height: 20px;
-    font-size: 18px;
+    width: 150px;
+    height: 60px;
+    font-size: 2em;
     text-align: center;
+    color: #EF5B5B;
+    margin-bottom: 50px;
 }
 
 .button {
     font-family: 'Tinos', sans-serif;
-/*    background-color: #EF5B5B;*/
     color: #EAEAEA;
-    height: 50px;
+    height: 35px;
     width: 200px;
     font-size: 20px;
     text-align: center;
     border: none;
+    margin: 15px 0;
 }
 
-.questionNo {
+.otherbutton {
+    font-family: 'Tinos', sans-serif;
+    color: black;
+    height: 35px;
+    width: 150px;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    margin: 15px 0;
+}
+
+.questionTime {
     font-family: 'Roboto', sans-serif;
-    font-size: 3em;
 }
 
 .question {
     font-family: 'Tinos', sans-serif;
-    font-size: 2em;
+}
+
+h1 {
+    color: #EAEAEA;
+    margin-top: 70px;
+    font-size: 2.5em;
+}
+
+h4 {
+    margin-bottom: 50px;
+    color: #EAEAEA;
+    font-weight: 100;
+    font-size: 1.5em;
 }
 
 p {
-    margin:0;
+    margin: 0;
     color: #EAEAEA;
 }
 
 .logo {
-    height:100px;
+    height: 150px;
 }
 
-.imgsize{
-    height:200px;
+.imgsize {
+    height: 200px;
+    margin: 30px 0;
 }
 
-.qimg{
-    height:300px;
+.qimg {
+    height: 300px;
 }
 
 .resultsTitle {
     font-family: 'Roboto', sans-serif;
     font-size: 5em;
+    margin-top: 70px;
 }
 
 .resultsDesc {
@@ -82,23 +142,20 @@ p {
     width: 200px;
 }
 
-.dot {
-  height: 300px;
-  width: 300px;
-  background-color: #EF5B5B;
-  border-radius: 50%;
-  display: inline-block;
+#circle {
+    height: 300px;
+    width: 300px;
 }
 
 .username {
     background-image: url(/assets/icons/solid/user-alt.svg);
     background-repeat: no-repeat;
-    padding-left:20px;
+    padding-left: 20px;
     color: gray;
 }
 
 .password {
     background-image: url(/assets/icons/solid/key.svg);
     background-repeat: no-repeat;
-    padding-left:20px;
+    padding-left: 20px;
 }

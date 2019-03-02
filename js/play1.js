@@ -49,7 +49,6 @@ if(debug == true) {
 
 // get user's answer
 
-
 // check if submit button is clicked
 document.getElementById('qButton').onclick = function() {
     var userAnswer = document.getElementById('qInput').value;
