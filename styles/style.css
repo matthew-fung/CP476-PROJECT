@@ -159,3 +159,9 @@ p {
     background-repeat: no-repeat;
     padding-left: 20px;
 }
+ 
+.puppy, .bagel {
+    width:150px;
+    height:150px;
+    
+}
