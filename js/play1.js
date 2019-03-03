@@ -4,6 +4,8 @@
 
 //TODO: Set this to false before production - this outputs each step to console
 let debug = true;
+var userAnswer = null;
+var timeout = false;
 
  /**
   * Returns a number between 0 and maxValue
@@ -18,7 +20,7 @@ function getRandomValue() {
 
 
 /**
- * Checks if user's answer is correct 
+ * Checks if user's answer is correct
  * @param: value1 (int)
  * @param: value2 (int)
  * @param: userAnswer (int)
@@ -36,7 +38,7 @@ function validateAnswer(value1, value2, userAnswer) {
 /**
  * Starts the game time countdown
  * @param: duration - game time (int)
- * @param: display - 
+ * @param: display -
  */
 function startCountdown(duration) {
     var timer = duration, seconds;
@@ -47,6 +49,10 @@ function startCountdown(duration) {
         if(timer > 0 ) {
             timer--;
         }
+        // if timer times out and the answer is incorrect, user does not get the point
+        if(timer == 0) {
+          timeout = true;
+        }
     }, 1000);
 };
 
@@ -54,7 +60,7 @@ function startCountdown(duration) {
 window.onload = function () {
 
     //start game timer countdown
-    var duration = 7; 
+    var duration = 7;
     startCountdown(duration);
 
     // generate question values
@@ -71,13 +77,18 @@ window.onload = function () {
 
     // check if submit button is clicked
     document.getElementById('qButton').onclick = function () {
-        var userAnswer = document.getElementById('qInput').value;
+        userAnswer = document.getElementById('qInput').value;
         if (userAnswer == '') {
             if (debug == true) {
                 console.log('empty answer');
             };
         } else {
             var isCorrect = validateAnswer(value1, value2, userAnswer);
+            console.log('is the users answer correct? ' + isCorrect);
+            if(timeout) {
+              isCorrect = false;
+              console.log("but there is timeout");
+            }
             if (debug == true) {
                 console.log('is the users answer correct? ' + isCorrect);
             };
@@ -85,5 +96,3 @@ window.onload = function () {
         };
     };
 };
-
-    

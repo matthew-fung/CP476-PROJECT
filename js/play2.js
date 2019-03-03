@@ -22,6 +22,13 @@ function startCountdown(duration) {
         if (timer > 0) {
             timer--;
         }
+        if (timer == 0 && (!isCorrect || bagelsClicked != 3) ) {
+          isCorrect = false;
+        }
+
+        if(debug) {
+          console.log("Does user receive points? " + isCorrect);
+        }
     }, 1000);
 };
 
@@ -57,19 +64,6 @@ window.onload = function () {
     bagel2.addEventListener('click', bagelClickHandler);
     bagel3.addEventListener('click', bagelClickHandler);
 
-    // if user clicks 1 puppy or more, they will not receive any points
-    if(!isCorrect) {
-      bagelsClicked = 0;
-    } else {
-      // if they didn't click all the puppies, they will receive no points either
-      if(bagelsClicked != 3) {
-        isCorrect = false;
-      }
-    }
-
-    if(debug == true) {
-      console.log("Does user receive points? " + isCorrect);
-    }
 
 
 };
