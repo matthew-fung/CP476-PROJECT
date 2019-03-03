@@ -24,15 +24,12 @@ function startCountdown(duration) {
 };
 
 
-function puppyClickHandler(score) { 
+function puppyClickHandler() { 
     console.log('puppy clicked');
-    score +=1;
-    console.log(score);
-    return score;
 }
 
 function bagelClickHandler() {
-    console.log('bagel clicked');
+    alert('bagel clicked');
 }
 
 
@@ -48,7 +45,7 @@ var score = 0;
 window.onload = function () {
     
     startCountdown(7);  
-    puppy1.addEventListener('click', puppyClickHandler, score);
+    puppy1.addEventListener('click', puppyClickHandler);
     puppy2.addEventListener('click', puppyClickHandler);
     puppy3.addEventListener('click', puppyClickHandler);
 
