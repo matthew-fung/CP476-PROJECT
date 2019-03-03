@@ -26,7 +26,7 @@ function startCountdown(duration) {
           isCorrect = false;
         }
 
-        if(debug) {
+        if(debug && timer == 0) {
           console.log("Does user receive points? " + isCorrect);
         }
     }, 1000);
