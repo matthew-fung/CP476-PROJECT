@@ -4,8 +4,8 @@
   "description": "beforeyoudrive.io",
   "main": "app.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
+    "start": "node app",
+    "dev": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,9 +21,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mongoose": "^5.4.19"
-  },
-  "devDependencies": {
+    "mongoose": "^5.4.19",
     "nodemon": "^1.18.10"
-  }
+  },
+
 }
