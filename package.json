@@ -2,7 +2,7 @@
   "name": "cp476-project",
   "version": "1.0.0",
   "description": "beforeyoudrive.io",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/matthew-fung/CP476-PROJECT#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
