@@ -1,0 +1,27 @@
+{
+  "name": "cp476-project",
+  "version": "1.0.0",
+  "description": "beforeyoudrive.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthew-fung/CP476-PROJECT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthew-fung/CP476-PROJECT/issues"
+  },
+  "homepage": "https://github.com/matthew-fung/CP476-PROJECT#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
