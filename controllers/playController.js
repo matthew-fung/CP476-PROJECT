@@ -6,29 +6,29 @@
 // const Game = require('../models/game');
 
 // GAME 1
-exports.game1_get = function(req,res) {
+exports.game1GET = function(req,res) {
     res.send('GAME 1 GET');
 };
-exports.game1_post = function(req,res) {
+exports.game1POST = function(req,res) {
     res.send('GAME 1 POST');
 };
 
 
 // GAME 2
-exports.game2_get = function(req,res) {
+exports.game2GET = function(req,res) {
     res.send('GAME 2 GET');
 };
 
-exports.game2_post = function(req,res) {
+exports.game2POST = function(req,res) {
     res.send('GAME 2 POST');
 };
 
 
 // GAME 3
-exports.game3_get = function(req,res) {
+exports.game3GET = function(req,res) {
     res.send('GAME 3 GET');
 };
 
-exports.game3_post = function(req,res) {
+exports.game3POST = function(req,res) {
     res.send('GAME 3 POST');
 };
