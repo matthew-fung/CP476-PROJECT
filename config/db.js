@@ -7,5 +7,18 @@ const url = "mongodb://localhost:27017/mydb";
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   console.log("Database created!");
+  var dbo = db.db("mydb");
+  dbo.createCollection("users", function(err, res) {
+    if (err) throw err;
+    console.log("Users collection created!");
+  });
+  dbo.createCollection("results", function(err, res) {
+    if (err) throw err;
+    console.log("Results collection created!");
+  });
+  dbo.createCollection("locations", function(err, res) {
+    if (err) throw err;
+    console.log("Locations collection created!");
+  });
   db.close();
 });
