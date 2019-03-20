@@ -1,3 +1,7 @@
+/**
+ * loginController .js - handles CRUD actions for login/register
+ */
+
 // TODO: import user
 // const User = require('../models/user');
 

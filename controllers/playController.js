@@ -1,3 +1,7 @@
+/**
+ * playController .js - handles actions for game1, game2, and game3
+ */
+
 // TODO: import game model
 // const Game = require('../models/game');
 
