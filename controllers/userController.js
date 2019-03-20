@@ -4,23 +4,34 @@
 
 // TODO: import user
 // const User = require('../models/user');
+const path = require('path');
+const bodyParser = require('body-parser');
 
 // REGISTER
 exports.registerGET = function(req, res) {
-    res.send('NOT IMPLEMENTED: register GET');
+    res.sendFile((path.join(__dirname + '../../public/views/register.html')));
 };
 
 exports.registerPOST = function(req, res) {
-    res.send('NOT IMPLEMENTED: register POST');
+    // TODO: handle register POST
+    const username = req.body.username;
+    const password = req.body.password;
+    const email = req.body.email;
+
+    res.send("username: " + username + "<br>" + "password: " + password + "<br>" + "email:" + email);
 };
 
 
 // LOGIN
 exports.loginGET = function(req, res) {
-    res.send('NOT IMPLEMENTED: login GET ');
+    res.sendFile((path.join(__dirname + '../../public/views/login.html')));
 };
 exports.loginPOST = function(req, res) {
-    res.send('NOT IMPLEMENTED: login POST ');
+    // TODO: authentication (need db to be set up first)
+    const username = req.body.username;
+    const password = req.body.password;
+
+    res.send("username: " + username + "<br>" + "password: " + password);
 };
 
 
