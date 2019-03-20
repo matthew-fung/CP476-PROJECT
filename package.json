@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/matthew-fung/CP476-PROJECT#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongodb": "^3.1.13",

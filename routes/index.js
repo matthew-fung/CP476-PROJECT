@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const router = express.Router();
 
-router.get('/', function(req,res) {
-    res.sendFile((path.join(__dirname + '../../public/views/index.html')));
-});
+const indexController = require('../controllers/indexController');
+
+router.get('/', indexController.indexGET);
+router.get('/results', indexController.resultsGET);
+router.get('/share', indexController.shareGET);
 
 module.exports = router;
