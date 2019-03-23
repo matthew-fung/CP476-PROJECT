@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 // REGISTER
 exports.registerGET = function(req, res) {
-    res.sendFile((path.join(__dirname + '../../public/views/register.html')));
+    res.render('register');
 };
 
 exports.registerPOST = function(req, res) {
@@ -24,7 +24,7 @@ exports.registerPOST = function(req, res) {
 
 // LOGIN
 exports.loginGET = function(req, res) {
-    res.sendFile((path.join(__dirname + '../../public/views/login.html')));
+    res.render('login');
 };
 exports.loginPOST = function(req, res) {
     // TODO: authentication (need db to be set up first)

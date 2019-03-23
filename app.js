@@ -20,7 +20,8 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/play', playRouter)
 
-
+app.set('view engine', 'ejs');
+app.set('views', './public/views')
 app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 5000;
