@@ -52,6 +52,7 @@ var service;
 var infowindow;
 
 function initMap() {
+  markersArray = [];
   var here = new google.maps.LatLng(currentLat, currentLng);
   if(document.getElementById("qInput").value != "") {
     place = document.getElementById("qInput").value;
@@ -155,6 +156,15 @@ function deleteMarker(marker) {
   marker = null;
   console.log(markersArray);
 }
+
+
+
+
+// FOR UBER API REQUESTS, USE AXIOS AND HAVE THE UBER API URL AND QUERY
+
+
+
+
 
 // function initMap() {
 //   map = new google.maps.Map(document.getElementById('map'), {
