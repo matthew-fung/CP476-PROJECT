@@ -18,7 +18,9 @@ exports.game1GET = function(req,res) {
             let triviaType = response.data.results[0].type;
             let triviaCorrectAnswer = response.data.results[0].correct_answer;
             let triviaIncorrectAnswer = response.data.results[0].incorrect_answers[0];
-            res.send(triviaQuestion);
+            res.render('play1', {
+                questionTitle: triviaQuestion
+            });
         }
         
         
