@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <title>BeforeYouDrive.io</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "../../node_modules/axios/dist/axios.js"></script>
     <script src = "../js/destination.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -25,14 +27,14 @@
 <body style="background-color: #2B1F5E;">
     <main>
         <p class="resultsTitle">Where to?</p>
-        <p class="resultsDesc">Enter your destination. If a pin doesn't appear on the map, click on the map to drop a pin, and double click to remove!</p>
+        <p id = "pText" class="resultsDesc" style = "font-size: 20px;">Enter your destination. If a pin doesn't appear on the map, click on the map to drop a pin, and double click to remove!</p>
 
-          <p><input id="qInput" class="qInput" name="destination" type="text" style = "width: 400px;"></p> <br>
-          <p><button class="button" style="background-color: rgb(42, 175, 30); margin-top:40px;" onclick = 'initMap()'>Search</button></p>
+          <p><input  id = "qInput" class="qInput" name="destination" type="text" style = "width: 400px;"></p> <br>
+          <p><button id="searchButton" class="button" style="background-color: rgb(42, 175, 30); margin-top:40px;" onclick = 'initMap()'>Search</button></p>
 
           <p style = "padding-left: 15%;"><div id='map' style = "z-index: -100" > </div></p>
 
-          <p><button class = "button" style = "background-color: #EF5B5B">Get Uber Quote</button></p>
+          <p><button id ="getPriceButton" class = "button" style = "background-color: #EF5B5B" onclick = 'getPriceEstimates()' >Get Uber Quote</button></p>
         <script> getCurrentLocation(); </script>
     </main>
 

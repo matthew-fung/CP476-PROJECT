@@ -1,8 +1,4 @@
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
-//var map, infoWindow;
+//const axios = require('axios');
 var currentLat = null;
 var currentLng = null;
 var destLat = null;
@@ -10,6 +6,7 @@ var destLng = null;
 var place = 'Wilfrid Laurier University'; // default location on start of map
 var destination = null;
 var current = null;
+var address = null;
 var markersArray = [];
 var map;
 var service;
@@ -47,12 +44,6 @@ function getCurrentLocation() {
 function getCoordinates() {
   // for debugging
 
-  // console.log('markers: ')
-  // for(var i = 0; i < markersArray.length; i++) {
-  //   console.log(markersArray[i].position.lat());
-  //   console.log(markersArray[i].position.lng());
-  // }
-
   console.log("current: ");
   console.log(currentLat);
   console.log(currentLng);
@@ -84,7 +75,7 @@ function initMap() {
   // when user clicks map, a marker will be placed
   google.maps.event.addListener(map, 'click', function(event) {
        placeMarker(event.latLng);
-       console.log(event.latLng);
+       console.log('click');
   });
 
 
@@ -117,6 +108,7 @@ function initMap() {
 // automatically generate marker
 function createMarker(place) {
   // there can only be one destination, delete all from array
+  address = place.name;
   for(var i = 0; markersArray.length; i++) {
     deleteMarker(markersArray[i]);
   }
@@ -160,7 +152,7 @@ function placeMarker(location) {
 
     markersArray.push(marker);
     var geocoder = new google.maps.Geocoder;
-    var address = null;
+
 
     // lol idk if this works ahhahaepof'jaksdaj;akl
     geocoder.geocode({
@@ -172,8 +164,6 @@ function placeMarker(location) {
         }
       }
     });
-
-
 
     // info on click
     google.maps.event.addListener(marker, 'click', function() {
@@ -209,20 +199,111 @@ function deleteMarker(marker) {
   marker = null;
   getCoordinates();
 
-  // MAKE SURE THAT THEY CANNOT
-  // if(markersArray.length == 0) {
-  //   alert('Please click on a location');
-  // }
 }
 
-function getUberQuote() {
+function getPriceEstimates_() {
+  var estimateUrl = "api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng;
   if(markersArray.length == 0) {
     alert("Please select a destination. If there is no pin on the map, you have not selected it.");
   } else {
-    
+
+    // const response = fetch(estimateUrl, {
+    //   headers: { Authorization: 'Token mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE' },
+    // })
+
+    $.get( apiUrl)
+    .done(function(data){
+      console.log(data);
+    })
+    .fail(function(err){
+      console.error(err.status, err.responseText);
+    });
   }
 }
 
+function getPriceEstimates_axios() {
+var estimateUrl = "api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng;
+  axios.get(estimateUrl, {
+        headers: { Authorization: 'Token ' + process.env.TOKEN, Accept_Language: 'en_US', Content_Type: 'application/json'  },
+      })
+  }
+
+// USING AJAX
+function getPriceEstimates() {
+  var estimateUrl = "api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
+
+//   $.getJSON(estimateUrl, function(data) {
+//     console.log(data);
+// });
+
+//OR
+
+// $.ajax({
+//           type: "GET",
+//           url: estimateUrl,
+//           beforeSend: function(xhr) {
+//
+//               xhr.setRequestHeader("Authorization", "Token mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE");
+//               xhr.setRequestHeader('Accept-Language', 'en_US');
+//               xhr.setRequestHeader('Content-Type', 'application/json');
+//               xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+//
+//           },
+//           success: function(data){
+//              console.log(data);
+//           }
+//       });
+  var data = '{"prices":[{"localized_display_name":"UberX","distance":1.7,"display_name":"UberX","product_id":"811c3224-5554-4d29-98ae-c4366882011f","high_estimate":3,"surge_multiplier":1.0,"minimum":2,"low_estimate":2,"duration":420,"estimate":"$2-3","currency_code":"USD"},{"localized_display_name":"Assist","distance":1.7,"display_name":"Assist","product_id":"9bb5e326-f5eb-4143-9153-18d880792db4","high_estimate":3,"surge_multiplier":1.0,"minimum":2,"low_estimate":2,"duration":420,"estimate":"$2-3","currency_code":"USD"},{"localized_display_name":"UberXL","distance":1.7,"display_name":"UberXL","product_id":"eb454d82-dcef-4d56-97ca-04cb11844ff2","high_estimate":4,"surge_multiplier":1.0,"minimum":3,"low_estimate":3,"duration":420,"estimate":"$3-4","currency_code":"USD"},{"localized_display_name":"Black","distance":1.7,"display_name":"Black","product_id":"ba49000c-3b04-4f54-8d50-f7ae0e20e867","high_estimate":6,"surge_multiplier":1.0,"minimum":4,"low_estimate":4,"duration":420,"estimate":"$4-6","currency_code":"USD"}]}';
+
+  var priceObj = JSON.parse(data);
+  console.log(priceObj.prices);
+
+  var main = document.querySelector("p");
+  var priceButton = document.getElementById("getPriceButton");
+  priceButton.parentNode.removeChild(priceButton);
+  var mapElem = document.getElementById("map");
+  mapElem.parentNode.removeChild(mapElem);
+  var searchButton = document.getElementById("searchButton");
+  searchButton.parentNode.removeChild(searchButton);
+  var inputText = document.getElementById("qInput");
+  inputText.parentNode.removeChild(inputText);
+
+  var text = document.querySelector("main");
+  document.getElementById("pText").innerHTML = "";
+
+  document.querySelector(".resultsTitle").innerHTML = address;
+
+  for(var i = 0; i < priceObj.prices.length; i++) {
+    console.log(priceObj.prices[i]);
+    var p = document.createElement('p');
+    var node = document.createTextNode(priceObj.prices[i].display_name + ": " + priceObj.prices[i].estimate);
+    p.appendChild(node);
+    text.appendChild(p);
+  }
+
+  var requestUrl = 'https://m.uber.com/looking/finalize?pickup=[longitude]'+currentLng+ '[latitude]'+ currentLat + '&destination=[longitude]'+destLng+ ' [latitude]' + destLat;
+  console.log(requestUrl);
+
+
+}
+
+
+
+//   $.getJSON("../js/response.json", function(json) {
+//     console.log(json); // this will show the info it in firebug console
+//   });
+// }
+
+// function getPriceEstimates(source, destination) {
+//   $.get( apiUrl + 'estimates' )
+//   .done(function(data){
+//     console.log(data);
+//   })
+//   .fail(function(err){
+//     console.error(err.status, err.responseText);
+//   });
+// }
+//
 
 
 
