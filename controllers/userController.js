@@ -14,11 +14,11 @@ exports.registerGET = function(req, res) {
 
 exports.registerPOST = function(req, res) {
     // TODO: handle register POST
-    const username = req.body.username;
+    const name = req.body.name;
     const password = req.body.password;
     const email = req.body.email;
 
-    res.send("username: " + username + "<br>" + "password: " + password + "<br>" + "email:" + email);
+    res.send("name: " + name + "<br>" + "password: " + password + "<br>" + "email:" + email);
 };
 
 
@@ -28,10 +28,10 @@ exports.loginGET = function(req, res) {
 };
 exports.loginPOST = function(req, res) {
     // TODO: authentication (need db to be set up first)
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
 
-    res.send("username: " + username + "<br>" + "password: " + password);
+    res.send("email: " + email + "<br>" + "password: " + password);
 };
 
 
