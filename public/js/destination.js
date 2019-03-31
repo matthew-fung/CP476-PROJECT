@@ -203,25 +203,13 @@ function deleteMarker(marker) {
 
 // USING AJAX
 function getPriceEstimates() {
-  var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
+  // var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
   var priceObj;
   var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
 $.ajax({
       
           type: "GET",
           url: estimateUrl,
-          beforeSend: function(xhr) {
-
-              xhr.setRequestHeader("Authorization", "Token mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE");
-              xhr.setRequestHeader('Accept-Language', 'en_US');
-              xhr.setRequestHeader('Content-Type', 'application/json');
-              xhr.setRequestHeader("Access-Control-Allow-Origin","*");
-              xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Methods");
-              xhr.setRequestHeader("Access-Control-Allow-Credentials", "true")
-              xhr.setRequestHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-
-
-          },
           success: function(data){
              console.log('data: ' + data);
              priceObj = JSON.parse(data);
