@@ -207,9 +207,11 @@ function getPriceEstimates() {
   var priceObj;
   var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
 $.ajax({
-      
           type: "GET",
           url: estimateUrl,
+          type: "GET",   
+          dataType: 'json',
+          cache: false,
           success: function(data){
              console.log('data: ' + data);
              priceObj = JSON.parse(data);
