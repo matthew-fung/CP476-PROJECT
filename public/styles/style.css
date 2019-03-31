@@ -165,3 +165,8 @@ p {
     height:150px;
     
 }
+
+#map {
+    margin-left: auto;
+    margin-right: auto;
+}
