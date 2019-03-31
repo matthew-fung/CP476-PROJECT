@@ -225,7 +225,9 @@ function getPriceEstimates_axios() {
 var estimateUrl = "api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng;
   axios.get(estimateUrl, {
         headers: { Authorization: 'Token ' + process.env.TOKEN, Accept_Language: 'en_US', Content_Type: 'application/json'  },
-      })
+      }).then(
+        console.log(data);
+      )
   }
 
 // USING AJAX

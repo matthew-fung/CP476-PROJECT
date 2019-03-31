@@ -15,3 +15,7 @@ exports.resultsGET = function(req,res) {
 exports.shareGET = function(req,res) {
     res.render('share');
 };
+
+exports.destinationGET = function(req, res) {
+    res.render('destination.html');
+}

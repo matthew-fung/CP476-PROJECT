@@ -8,5 +8,6 @@ const indexController = require('../controllers/indexController');
 router.get('/', indexController.indexGET);
 router.get('/results', indexController.resultsGET);
 router.get('/share', indexController.shareGET);
+router.get('/destination', indexController.destinationGET);
 
 module.exports = router;
