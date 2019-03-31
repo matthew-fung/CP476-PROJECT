@@ -1,3 +1,4 @@
+var cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -9,6 +10,9 @@ const playRouter = require('./routes/play');
 
 // enable bodyParser to get params from GET/POST requests
 // example: https://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters
+
+
+app.use(cors()); // Use this after the variable declaration
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:true
