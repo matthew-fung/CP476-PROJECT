@@ -17,5 +17,7 @@ exports.shareGET = function(req,res) {
 };
 
 exports.destinationGET = function(req, res) {
-    res.render('destination.html');
-}
+    res.sendFile(__dirname + '/destination.html');
+    // res.sendFile(path.join((__dirname));
+    // res.send(path.join((__dirname)));
+};
