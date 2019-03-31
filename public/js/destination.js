@@ -216,6 +216,10 @@ $.ajax({
               xhr.setRequestHeader('Accept-Language', 'en_US');
               xhr.setRequestHeader('Content-Type', 'application/json');
               xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+              xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+              xhr.setRequestHeader("Access-Control-Allow-Credentials", "true")
+              xhr.setRequestHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+
 
           },
           success: function(data){
