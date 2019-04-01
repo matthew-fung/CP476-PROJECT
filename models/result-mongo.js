@@ -4,9 +4,8 @@ var mongoose = require('mongoose');
 //mongoose.connect(mongoDB, { useNewUrlParser: true });
 //
 //var db = mongoose.connection;
-
+//    resultsID: {type: String, unique: true, required: true, dropDups: true},
 var Schema = mongoose.Schema({
-    resultsID: {type: String, unique: true, required: true, dropDups: true},
     userID: {type: String, required: true},
     game1a: {type: String},
     game1b: {type: String},
@@ -15,4 +14,4 @@ var Schema = mongoose.Schema({
     class: {type: String}
 });
 
-var result = module.exports = mongoose.model('result', Schema);
+var result = module.exports = mongoose.model('results', Schema);

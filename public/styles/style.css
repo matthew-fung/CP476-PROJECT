@@ -128,6 +128,10 @@ p {
     margin-top: 70px;
 }
 
+.darkbg {
+    background-color: black;
+}
+
 .resultsDesc {
     font-family: 'Tinos', sans-serif;
     font-size: 3em;

@@ -4,13 +4,13 @@ var mongoose = require('mongoose');
 //mongoose.connect(mongoDB, { useNewUrlParser: true });
 //
 //var db = mongoose.connection;
-
+//userID: {type: String, unique: true, required: true, dropDups: true},
+    
 var Schema = mongoose.Schema({
-    userID: {type: String, unique: true, required: true, dropDups: true},
     name: {type: String, required: true},
     password: {type: String, required: true},
-    email: {type: String, required: true},
+    email: {type: String, unique:true, required: true, dropDups: true},
     accountCreation: {type: Date, default: Date.now}
 });
 
-var user = module.exports = mongoose.model('user', Schema);
+var user = module.exports = mongoose.model('users', Schema);

@@ -11,33 +11,33 @@ window.onload = function () {
             && password == "") {
             e.preventDefault();
         } else {
-            var MongoClient = require('mongodb').MongoClient;
-            var url = "mongodb://localhost:27017/";
+//            var MongoClient = require('mongodb').MongoClient;
+//            var url = "mongodb://localhost:27017/";
 
-            MongoClient.connect(url, function (err, db) {
-                if (err) throw err;
-                var dbo = db.db("mydb");
-
-                var today = new Date();
-                var dd = String(today.getDate()).padStart(2, '0');
-                var mm = String(today.getMonth() + 1).padStart(2, '0');
-                var yyyy = today.getFullYear();
-
-                today = mm + '/' + dd + '/' + yyyy;
-
-                var myobj = {
-                    name: name,
-                    password: password,
-                    email: email,
-                    accountCreation: today
-                };
-                
-                dbo.collection("user").insertOne(myobj, function (err, res) {
-                    if (err) throw err;
-                    console.log("User successfully registered");
-                    db.close();
-                });
-            });
+//            MongoClient.connect(url, function (err, db) {
+//                if (err) throw err;
+//                var dbo = db.db("mydb");
+//
+//                var today = new Date();
+//                var dd = String(today.getDate()).padStart(2, '0');
+//                var mm = String(today.getMonth() + 1).padStart(2, '0');
+//                var yyyy = today.getFullYear();
+//
+//                today = mm + '/' + dd + '/' + yyyy;
+//
+//                var myobj = {
+//                    name: name,
+//                    password: password,
+//                    email: email,
+//                    accountCreation: today
+//                };
+//                
+//                dbo.collection("user").insertOne(myobj, function (err, res) {
+//                    if (err) throw err;
+//                    console.log("User successfully registered");
+//                    db.close();
+//                });
+//            });
         }
     };
 }

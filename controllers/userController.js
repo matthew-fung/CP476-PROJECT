@@ -3,7 +3,7 @@
  */
 
 // TODO: import user
-// const User = require('../models/user');
+const User = require('../models/user-mongo');
 const path = require('path');
 const bodyParser = require('body-parser');
 
@@ -14,11 +14,22 @@ exports.registerGET = function(req, res) {
 
 exports.registerPOST = function(req, res) {
     // TODO: handle register POST
-    const name = req.body.name;
-    const password = req.body.password;
-    const email = req.body.email;
-
-    res.send("name: " + name + "<br>" + "password: " + password + "<br>" + "email:" + email);
+    let user = new User();
+    user.name = req.body.name;
+    user.password = req.body.password;
+    user.email = req.body.email;
+    
+    user.save(function(error){
+        if(error){
+            console.log("Register Error:"+error);
+            return;
+        } else {
+            console.log("Register Successful");
+            res.redirect('/home');
+        }
+    });
+    
+//    res.send("name: " + name + "<br>" + "password: " + password + "<br>" + "email:" + email);
 };
 
 
@@ -28,10 +39,15 @@ exports.loginGET = function(req, res) {
 };
 exports.loginPOST = function(req, res) {
     // TODO: authentication (need db to be set up first)
-    const email = req.body.email;
-    const password = req.body.password;
 
-    res.send("email: " + email + "<br>" + "password: " + password);
+//    user.save(function(error){
+//        if(error){
+//            console.log(error);
+//            return;
+//        } else {
+//            res.redirect('/');
+//        }
+//    });
 };
 
 

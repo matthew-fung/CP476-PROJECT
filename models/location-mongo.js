@@ -4,12 +4,12 @@ var mongoose = require('mongoose');
 //mongoose.connect(mongoDB, { useNewUrlParser: true });
 
 //var db = mongoose.connection;
-
+//    locationID: {type: String, unique: true, required: true, dropDups: true},
 var Schema = mongoose.Schema({
-    locationID: {type: String, unique: true, required: true, dropDups: true},
+
     locationName: {type: String, required: true},
     userID: {type: String, required: true},
     address: {type: String, required: true}
 })
 
-var location = module.exports = mongoose.model('location', Schema);
+var location = module.exports = mongoose.model('locations', Schema);

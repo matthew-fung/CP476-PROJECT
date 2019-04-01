@@ -7,6 +7,7 @@ const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const playRouter = require('./routes/play');
+const homeRouter = require('./routes/home');
 const mongoose = require('mongoose');
 
 // enable bodyParser to get params from GET/POST requests
@@ -42,7 +43,8 @@ app.use(bodyParser.urlencoded({
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/play', playRouter)
+app.use('/play', playRouter);
+app.use('/home', homeRouter);
 
 app.set('view engine', 'ejs');
 app.set('views', './public/views')
