@@ -7,10 +7,30 @@ const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const playRouter = require('./routes/play');
+const mongoose = require('mongoose');
 
 // enable bodyParser to get params from GET/POST requests
 // example: https://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters
 
+// connect to mongodb
+var mongoDB = "mongodb://localhost:27017/mydb";
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+
+// check connection works
+db.once('open', function(){
+    console.log('connected to mongodb')
+});
+
+// check no db errors
+db.on('error', function(error){
+    console.log(error);
+});
+
+// models
+let user = require('./models/user-mongo');
+let location = require('./models/location-mongo');
+let result = require('./models/result-mongo');
 
 app.use(cors()); // Use this after the variable declaration
 app.use(bodyParser.json());

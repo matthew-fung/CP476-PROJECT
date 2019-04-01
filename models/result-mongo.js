@@ -1,13 +1,11 @@
 var mongoose = require('mongoose');
 
-var mongoDB = "mongodb://localhost:27017/mydb";
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+//var mongoDB = "mongodb://localhost:27017/mydb";
+//mongoose.connect(mongoDB, { useNewUrlParser: true });
+//
+//var db = mongoose.connection;
 
-var db = mongoose.connection;
-
-var Schema = mongoose.Schema;
-
-var results = new Schema({
+var Schema = mongoose.Schema({
     resultsID: {type: String, unique: true, required: true, dropDups: true},
     userID: {type: String, required: true},
     game1a: {type: String},
@@ -16,3 +14,5 @@ var results = new Schema({
     game3: {type: String},
     class: {type: String}
 });
+
+var result = module.exports = mongoose.model('result', Schema);
