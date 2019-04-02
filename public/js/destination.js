@@ -222,18 +222,12 @@ $.ajax({
           type: "GET",
           url: estimateUrl,
           dataType: 'json',
-          crossDomain: true,
-          cache: false,
+          //crossDomain: true,
+          //cache: false,
           //contentType: "application/json; charset=utf-8",
           //jsonpCallback: 'jsonpResponse',
           //jsonp: false,
-          beforeSend: function(xhr) {
 
-              xhr.setRequestHeader("Authorization", "Token mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE");
-              xhr.setRequestHeader('Accept-Language', 'en_US');
-              xhr.setRequestHeader('Content-Type', 'application/json');
-
-          },
           success: function(data){
              console.log(data);
           },
