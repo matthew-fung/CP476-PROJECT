@@ -210,7 +210,7 @@ $.ajax({
           type: "GET",
           url: estimateUrl,
           type: "GET",
-          dataType: 'json',
+          dataType: 'jsonp',
           crossDomain: true,
           cache: false,
           success: function(data){
