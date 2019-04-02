@@ -207,9 +207,10 @@ function getPriceEstimates() {
   var priceObj;
   var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
   //console.log(estimateUrl);
+  jQuery.getJSON(estimateUrl+'&callback=?', function(data) {console.log(data);});
 
   var script = $("<script />", {
-    src: "http://run.plnkr.co/plunks/v8xyYN64V4nqCshgjKms/data-1.json",
+    src: estimateUrl,
     type: "application/json"
   });
   $('head').append(script);
