@@ -284,8 +284,8 @@ function getPriceEstimates() {
     text.appendChild(p);
   }
 
-  var requestUrl = 'https://m.uber.com/looking/finalize?pickup=[longitude]'+currentLng+ '[latitude]'+ currentLat + '&destination=[longitude]'+destLng+ ' [latitude]' + destLat;
-  console.log(requestUrl);
+  //var requestUrl = 'https://m.uber.com/looking/finalize?pickup=[longitude]'+currentLng+ '[latitude]'+ currentLat + '&destination=[longitude]'+destLng+ ' [latitude]' + destLat;
+  //console.log(requestUrl);
 
 
 }
@@ -332,7 +332,7 @@ getCurrentLocation = function() {
           <p style = "padding-left: 15%;"><div id='map' style = "z-index: -100" > </div></p>
 
           <p><button id ="getPriceButton" class = "button" style = "background-color: #EF5B5B" onclick = 'getPriceEstimates()' >Get Uber Quote</button></p>
-          
+
         <% getCurrentLocation(); %>
     </main>
 

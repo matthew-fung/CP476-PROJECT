@@ -209,8 +209,9 @@ function getPriceEstimates() {
 $.ajax({
           type: "GET",
           url: estimateUrl,
-          type: "GET",   
+          type: "GET",
           dataType: 'json',
+          crossDomain: true,
           cache: false,
           success: function(data){
              console.log('data: ' + data);
