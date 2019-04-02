@@ -213,6 +213,7 @@ $.ajax({
           crossDomain: true,
           cache: false,
           jsonpCallback: function(data) {
+            console.log(data);
             priceObj = JSON.parse(data);
             console.log('priceObj: ' + priceObj);
           },
