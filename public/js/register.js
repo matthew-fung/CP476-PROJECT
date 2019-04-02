@@ -1,4 +1,7 @@
 window.onload = function () {
+    var regbutton = document.getElementsByName('regbutton');
+    regbutton.addEventListener('click', register);
+    
     function register(e) {
         var emailregex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -38,6 +41,8 @@ window.onload = function () {
 //                    db.close();
 //                });
 //            });
+            console.log("register valid");
+            return true;
         }
     };
 }

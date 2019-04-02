@@ -1,4 +1,6 @@
 window.onload = function () {
+    var logbutton = document.getElementByname('logbutton');
+    logbutton.addEventListener('click', login);
     
     function login (e){
         
@@ -9,6 +11,7 @@ window.onload = function () {
             e.preventDefault();
         } else {
             console.log("input valid");
+            return true;
         }
     }
 }
