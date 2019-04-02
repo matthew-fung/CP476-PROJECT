@@ -201,6 +201,12 @@ function deleteMarker(marker) {
 
 }
 
+function jsonpResponse(data) {
+  console.log(data);
+  // priceObj = JSON.parse(data);
+  // console.log('priceObj: ' + priceObj);
+}
+
 // USING AJAX
 function getPriceEstimates() {
   // var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
@@ -209,11 +215,6 @@ function getPriceEstimates() {
   //console.log(estimateUrl);
   //jQuery.getJSON(estimateUrl+'&callback=?', function(data) {console.log(data);});
 
-  var script = $("<script />", {
-    src: estimateUrl,
-    type: "application/json"
-  });
-  $('head').append(script);
 
 $.ajax({
           type: "GET",
@@ -222,11 +223,7 @@ $.ajax({
           crossDomain: true,
           cache: false,
           //contentType: "application/json; charset=utf-8",
-          jsonpCallback: function(data) {
-            console.log(data);
-            priceObj = JSON.parse(data);
-            console.log('priceObj: ' + priceObj);
-          },
+          jsonpCallback: 'jsonpResponse',
           jsonp: false,
           // success: function(data){
           //    console.log(data);
