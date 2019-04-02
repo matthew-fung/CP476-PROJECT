@@ -221,12 +221,12 @@ function getPriceEstimates() {
 $.ajax({
           type: "GET",
           url: estimateUrl,
-          dataType: 'json',
+          dataType: 'jsonp',
           crossDomain: true,
           cache: false,
           //contentType: "application/json; charset=utf-8",
-          //jsonpCallback: 'jsonpResponse',
-          //jsonp: false,
+          jsonpCallback: 'jsonpResponse',
+          jsonp: false,
           success: function(data){
              console.log(data);
           },
