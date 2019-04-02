@@ -224,7 +224,8 @@ $.ajax({
           dataType: 'json',
           //crossDomain: true,
           //cache: false,
-          //contentType: "application/json; charset=utf-8",
+          contentType: "application/json; charset=utf-8",
+          data: 'data',
           //jsonpCallback: 'jsonpResponse',
           //jsonp: false,
 
