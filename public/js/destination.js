@@ -231,6 +231,7 @@ $.ajax({
 
           success: function(data){
              console.log(data);
+             priceObj = data;
           },
           error: function(xhr, status, error) {
             console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
