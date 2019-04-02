@@ -212,10 +212,11 @@ $.ajax({
           dataType: 'jsonp',
           crossDomain: true,
           cache: false,
-          complete: function(data){
-             priceObj = JSON.parse(data);
-             console.log('priceObj: ' + priceObj);
-          }
+          jsonpCallback: function(data) {
+            priceObj = JSON.parse(data);
+            console.log('priceObj: ' + priceObj);
+          },
+          jsonp: 'callback'
           // success: function(data){
           //    priceObj = JSON.parse(data);
           //    console.log('priceObj: ' + priceObj);
