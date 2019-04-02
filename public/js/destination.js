@@ -217,7 +217,7 @@ $.ajax({
             priceObj = JSON.parse(data);
             console.log('priceObj: ' + priceObj);
           },
-          jsonp: 'callback'
+          jsonp: false
           // success: function(data){
           //    priceObj = JSON.parse(data);
           //    console.log('priceObj: ' + priceObj);
