@@ -212,16 +212,19 @@ $.ajax({
           dataType: 'jsonp',
           crossDomain: true,
           cache: false,
+          contentType: "application/json; charset=utf-8",
           jsonpCallback: function(data) {
             console.log(data);
             priceObj = JSON.parse(data);
             console.log('priceObj: ' + priceObj);
           },
-          jsonp: false
-          // success: function(data){
-          //    priceObj = JSON.parse(data);
-          //    console.log('priceObj: ' + priceObj);
-          // }
+          jsonp: true,
+          success: function(data){
+             console.log(data);
+          },
+          error: function(xhr, status, error) {
+            console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
+          }
       });
   // var data = '{"prices":[{"localized_display_name":"UberX","distance":1.7,"display_name":"UberX","product_id":"811c3224-5554-4d29-98ae-c4366882011f","high_estimate":3,"surge_multiplier":1.0,"minimum":2,"low_estimate":2,"duration":420,"estimate":"$2-3","currency_code":"USD"},{"localized_display_name":"Assist","distance":1.7,"display_name":"Assist","product_id":"9bb5e326-f5eb-4143-9153-18d880792db4","high_estimate":3,"surge_multiplier":1.0,"minimum":2,"low_estimate":2,"duration":420,"estimate":"$2-3","currency_code":"USD"},{"localized_display_name":"UberXL","distance":1.7,"display_name":"UberXL","product_id":"eb454d82-dcef-4d56-97ca-04cb11844ff2","high_estimate":4,"surge_multiplier":1.0,"minimum":3,"low_estimate":3,"duration":420,"estimate":"$3-4","currency_code":"USD"},{"localized_display_name":"Black","distance":1.7,"display_name":"Black","product_id":"ba49000c-3b04-4f54-8d50-f7ae0e20e867","high_estimate":6,"surge_multiplier":1.0,"minimum":4,"low_estimate":4,"duration":420,"estimate":"$4-6","currency_code":"USD"}]}';
 
