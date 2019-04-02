@@ -222,7 +222,7 @@ $.ajax({
           type: "GET",
           url: estimateUrl,
           dataType: 'json',
-          //crossDomain: true,
+          crossDomain: true,
           cache: false,
           //contentType: "application/json; charset=utf-8",
           //jsonpCallback: 'jsonpResponse',
@@ -232,7 +232,6 @@ $.ajax({
               xhr.setRequestHeader("Authorization", "Token mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE");
               xhr.setRequestHeader('Accept-Language', 'en_US');
               xhr.setRequestHeader('Content-Type', 'application/json');
-              xhr.setRequestHeader("Access-Control-Allow-Origin","*");
 
           },
           success: function(data){
