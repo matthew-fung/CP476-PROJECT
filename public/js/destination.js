@@ -213,7 +213,7 @@ $.ajax({
           dataType: 'jsonp',
           crossDomain: true,
           cache: false,
-          contentType: "application/json; charset=utf-8",
+          //contentType: "application/json; charset=utf-8",
           jsonpCallback: function(data) {
             console.log(data);
             priceObj = JSON.parse(data);
