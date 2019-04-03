@@ -17,7 +17,7 @@ function success(position) {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-  ///////////////////////////////////////////////////// FIND CURRENT COORDINATES
+  // FIND CURRENT COORDINATES
   currentLat = pos.lat;
   currentLng = pos.lng;
   current = {lat: currentLat, lng: currentLng};
@@ -201,16 +201,9 @@ function deleteMarker(marker) {
 
 }
 
-function jsonpResponse(data) {
-  console.log(data);
-  // priceObj = JSON.parse(data);
-  // console.log('priceObj: ' + priceObj);
-}
-
 // USING AJAX
 function getPriceEstimates() {
-  // var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
-  var priceObj;
+var priceObj;
   var estimateUrl = "https://api.uber.com/v1.2/estimates/price?start_latitude=" + current.lat + "&start_longitude=" + current.lng + "&end_latitude=" + destination.lat + "&end_longitude=" + destination.lng +"&server_token=mUPQ5llGBNjACxtz-MDzaMbLzcuhD7i8QNs8txkE";
   //console.log(estimateUrl);
   $.getJSON(estimateUrl, function(result){
@@ -261,33 +254,3 @@ $.ajax({
             console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
           }
       });
-  // var data = '{"prices":[{"localized_display_name":"UberX","distance":1.7,"display_name":"UberX","product_id":"811c3224-5554-4d29-98ae-c4366882011f","high_estimate":3,"surge_multiplier":1.0,"minimum":2,"low_estimate":2,"duration":420,"estimate":"$2-3","currency_code":"USD"},{"localized_display_name":"Assist","distance":1.7,"display_name":"Assist","product_id":"9bb5e326-f5eb-4143-9153-18d880792db4","high_estimate":3,"surge_multiplier":1.0,"minimum":2,"low_estimate":2,"duration":420,"estimate":"$2-3","currency_code":"USD"},{"localized_display_name":"UberXL","distance":1.7,"display_name":"UberXL","product_id":"eb454d82-dcef-4d56-97ca-04cb11844ff2","high_estimate":4,"surge_multiplier":1.0,"minimum":3,"low_estimate":3,"duration":420,"estimate":"$3-4","currency_code":"USD"},{"localized_display_name":"Black","distance":1.7,"display_name":"Black","product_id":"ba49000c-3b04-4f54-8d50-f7ae0e20e867","high_estimate":6,"surge_multiplier":1.0,"minimum":4,"low_estimate":4,"duration":420,"estimate":"$4-6","currency_code":"USD"}]}';
-
-
-  // var requestUrl = 'https://m.uber.com/looking/finalize?pickup=[longitude]'+currentLng+ '[latitude]'+ currentLat + '&destination=[longitude]'+destLng+ ' [latitude]' + destLat;
-  // console.log(requestUrl);
-
-
-}
-
-
-
-//   $.getJSON("../js/response.json", function(json) {
-//     console.log(json); // this will show the info it in firebug console
-//   });
-// }
-
-// function getPriceEstimates(source, destination) {
-//   $.get( apiUrl + 'estimates' )
-//   .done(function(data){
-//     console.log(data);
-//   })
-//   .fail(function(err){
-//     console.error(err.status, err.responseText);
-//   });
-// }
-//
-
-
-
-// FOR UBER API REQUESTS, USE AXIOS AND HAVE THE UBER API URL AND QUERY
