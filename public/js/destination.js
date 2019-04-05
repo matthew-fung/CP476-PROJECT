@@ -254,3 +254,5 @@ $.ajax({
             console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
           }
       });
+
+    }
