@@ -241,6 +241,7 @@ $.ajax({
              document.getElementById("pText").innerHTML = "";
 
              document.querySelector(".resultsTitle").innerHTML = address;
+             document.querySelector(".resultsTitle").style = "font-size: 40px";
 
              for(var i = 0; i < priceObj.prices.length; i++) {
                console.log(priceObj.prices[i]);
