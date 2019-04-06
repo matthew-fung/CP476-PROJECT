@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
@@ -33,6 +35,16 @@ let user = require('./models/user-mongo');
 let location = require('./models/location-mongo');
 let result = require('./models/result-mongo');
 
+// use sessions to keep track of the user
+app.use(session({
+  secret: 'beforeyoudrive',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db
+  })
+}));
+
 app.use(cors()); // Use this after the variable declaration
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -43,8 +55,10 @@ app.use(bodyParser.urlencoded({
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/play', playRouter);
+app.use('/game1', playRouter);
 app.use('/home', homeRouter);
+app.use('/logout', homeRouter);
+app.use('/test', homeRouter);
 
 app.set('view engine', 'ejs');
 app.set('views', './public/views')
