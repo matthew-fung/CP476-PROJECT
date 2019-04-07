@@ -28,7 +28,7 @@ exports.registerGET = function (req, res) {
     res.render('register');
 };
 
-exports.registerPOST = function (req, res) {
+exports.registerPOST = function (req, res, e) {
     let user = new User();
 
     var passSalt = salt();
@@ -54,7 +54,7 @@ exports.registerPOST = function (req, res) {
 
 // LOGIN
 exports.loginGET = function (req, res) {
-        res.render('login');
+    res.render('login');
 };
 
 exports.loginPOST = function (req, res) {
@@ -66,7 +66,7 @@ exports.loginPOST = function (req, res) {
             if (err) return handleError(err);
             console.log(user);
             if (user) {
-                            console.log('%s %s %s', user.email, user.name, user.password);
+                console.log('%s %s %s', user.email, user.name, user.password);
                 var tryHash = encrypt(req.body.password, user.salt);
 
                 if (user.email == req.body.email && tryHash == user.password) {

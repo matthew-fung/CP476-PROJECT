@@ -10,7 +10,8 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const playRouter = require('./routes/play');
 const homeRouter = require('./routes/home');
-const logoutRouter = require('./routes/logout')
+const logoutRouter = require('./routes/logout');
+const resultRouter = require('./routes/result');
 const mongoose = require('mongoose');
 
 // enable bodyParser to get params from GET/POST requests
@@ -61,6 +62,7 @@ app.use('/register', registerRouter);
 app.use('/game1', playRouter);
 app.use('/home', homeRouter);
 app.use('/logout', logoutRouter);
+app.use('/results', resultRouter);
 
 app.set('view engine', 'ejs');
 app.set('views', './public/views')

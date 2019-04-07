@@ -5,6 +5,6 @@ const router = express.Router();
 
 const indexController = require('../controllers/indexController');
 
-router.get('/', indexController.logoutGET);
+router.get('/', indexController.resultGET);
 
 module.exports = router;

@@ -25,6 +25,7 @@ exports.game1GET = function(req,res) {
     .catch(error => {
         console.log(error);
     });
+    // res.session.game1 = 'theresult';
 
     // res.send('GAME 1 GET');
     // res.send()
@@ -37,6 +38,7 @@ exports.game1POST = function(req,res) {
 // GAME 2
 exports.game2GET = function(req,res) {
     res.send('GAME 2 GET');
+    // res.session.game2 = 'theresult';
 };
 
 exports.game2POST = function(req,res) {
@@ -47,6 +49,7 @@ exports.game2POST = function(req,res) {
 // GAME 3
 exports.game3GET = function(req,res) {
     res.send('GAME 3 GET');
+    // res.session.game3 = 'theresult';
 };
 
 exports.game3POST = function(req,res) {

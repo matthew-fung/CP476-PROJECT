@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const router = express.Router();
 
-const homeController = require('../controllers/homeController');
+const indexController = require('../controllers/indexController');
 
-router.get('/', homeController.homeGET);
+router.get('/', indexController.homeGET);
 
 module.exports = router;
