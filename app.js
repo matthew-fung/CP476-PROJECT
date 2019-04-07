@@ -10,6 +10,7 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const playRouter = require('./routes/play');
 const homeRouter = require('./routes/home');
+const logoutRouter = require('./routes/logout')
 const mongoose = require('mongoose');
 
 // enable bodyParser to get params from GET/POST requests
@@ -46,6 +47,8 @@ app.use(session({
 }));
 
 app.use(cors()); // Use this after the variable declaration
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended:true
@@ -57,8 +60,7 @@ app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/game1', playRouter);
 app.use('/home', homeRouter);
-app.use('/logout', homeRouter);
-app.use('/test', homeRouter);
+app.use('/logout', logoutRouter);
 
 app.set('view engine', 'ejs');
 app.set('views', './public/views')

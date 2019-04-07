@@ -8,6 +8,7 @@ const User = require('../models/user-mongo');
 const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 
 var encrypt = function (password, salt) {
     var hash = crypto.createHmac('sha256', salt);
@@ -33,9 +34,6 @@ exports.registerPOST = function (req, res) {
     var passSalt = salt();
     var passHash = encrypt(req.body.password, passSalt);
 
-    console.log(passSalt);
-    console.log(passHash);
-
     user.name = req.body.name;
     user.password = passHash;
     user.salt = passSalt;
@@ -44,20 +42,19 @@ exports.registerPOST = function (req, res) {
     user.save(function (error, user) {
         if (error) {
             console.log("Register Error:" + error);
-            res.redirect('/register');
+            res.send('error registering');
         } else {
             console.log("Register Successful");
             req.session.userId = user._id;
-            console.log(req.session.userId);
+            req.session.save();
             res.redirect('/home');
         }
     });
 };
 
-
 // LOGIN
 exports.loginGET = function (req, res) {
-    res.render('login');
+        res.render('login');
 };
 
 exports.loginPOST = function (req, res) {
@@ -67,27 +64,27 @@ exports.loginPOST = function (req, res) {
             email: req.body.email
         }, function (err, user) {
             if (err) return handleError(err);
+            console.log(user);
+            if (user) {
+                            console.log('%s %s %s', user.email, user.name, user.password);
+                var tryHash = encrypt(req.body.password, user.salt);
 
-            console.log('%s %s %s', user.email, user.name, user.password);
-            var tryHash = encrypt(req.body.password, user.salt);
-
-            if (user.email == req.body.email && tryHash == user.password) { // hash is same
-                req.session.userId = user._id;
-                console.log(req.session.userId);
-                console.log("login success");
-                res.redirect('/home');
-            } else {
-                console.log("error verifying login");
-                res.redirect('/login');
+                if (user.email == req.body.email && tryHash == user.password) {
+                    req.session.userId = user._id;
+                    req.session.save();
+                    console.log(req.session);
+                    console.log("login success");
+                    res.redirect('/home');
+                } else {
+                    console.log("error verifying login");
+                    res.send('user not found');
+                }
             }
         });
-
     } else {
         console.log("Incorrect login info");
-        res.redirect('/login');
+        res.send('error logging in');
     }
-
-
 };
 
 
