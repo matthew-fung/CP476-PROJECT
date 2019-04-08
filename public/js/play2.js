@@ -4,7 +4,7 @@
 
 //TODO: Set this to false before production - this outputs each step to console
 let debug = true;
-var isCorrect = true;
+var puppiesClicked = 0;
 var bagelsClicked = 0;
 
 /**
@@ -34,13 +34,14 @@ function startCountdown(duration) {
 
 
 function puppyClickHandler() {
-    console.log('puppy clicked');
-    isCorrect = false;
+    // console.log('puppy clicked');
+    puppiesClicked++;
 }
 
 function bagelClickHandler() {
-    alert('bagel clicked');
+    // alert('bagel clicked');
     bagelsClicked++;
+    document.getElementById('qButton').value = bagelsClicked;
 }
 
 
@@ -52,10 +53,10 @@ var bagel1 = document.getElementById('bagel1');
 var bagel2 = document.getElementById('bagel2');
 var bagel3 = document.getElementById('bagel3');
 
-var score = 0;
 window.onload = function () {
 
     startCountdown(7);
+    
     puppy1.addEventListener('click', puppyClickHandler);
     puppy2.addEventListener('click', puppyClickHandler);
     puppy3.addEventListener('click', puppyClickHandler);
@@ -64,6 +65,7 @@ window.onload = function () {
     bagel2.addEventListener('click', bagelClickHandler);
     bagel3.addEventListener('click', bagelClickHandler);
 
+    
 
 
 };

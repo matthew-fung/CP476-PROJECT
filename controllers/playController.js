@@ -42,7 +42,7 @@ exports.game1POST = function (req, res) {
     };
 
     game1result.userID = req.session.userId;
-    game1result.result = result;
+    game1result.game1 = result;
     game1result.save(function (error, game1result) {
         if (error) {
             console.log("Game 1 result error:" + error);
@@ -60,11 +60,30 @@ exports.game1POST = function (req, res) {
 // GAME 2
 exports.game2GET = function (req, res) {
     res.render('play2');
-    // res.session.game2 = 'theresult';
+    
 };
 
 exports.game2POST = function (req, res) {
-    res.send('GAME 2 POST');
+    userGame2Answer = req.body.userGame2Answer;
+
+    console.log(userGame2Answer);
+
+    let game2result = new Result();
+
+    game2result.userID = req.session.userId;
+    game2result.game2 = req.body.userGame2Answer;
+
+    game2result.save(function (error, game2result) {
+        if (error) {
+            console.log("Game 2 result error:" + error);
+            res.send('error saving game2 result');
+        } else {
+            console.log("game 2 result stored successfully");
+            req.session.game2result = req.body.userGame2Answer;
+            req.session.save();
+            res.redirect('/play/game3');
+        };
+    });
 };
 
 
