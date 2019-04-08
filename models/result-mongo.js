@@ -7,8 +7,7 @@ var mongoose = require('mongoose');
 //    resultsID: {type: String, unique: true, required: true, dropDups: true},
 var Schema = mongoose.Schema({
     userID: {type: String, required: true},
-    game1a: {type: String},
-    game1b: {type: String},
+    game1: {type: String},
     game2: {type: String},
     game3: {type: String},
     class: {type: String}
