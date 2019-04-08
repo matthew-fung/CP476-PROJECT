@@ -64,9 +64,12 @@ exports.game2GET = function (req, res) {
 };
 
 exports.game2POST = function (req, res) {
-    userGame2Answer = req.body.userGame2Answer;
-
-    console.log(userGame2Answer);
+    bagelsClicked = req.body.userGame2Answer;
+    if(bagelsClicked == 3) {
+        req.body.userGame2Answer = "pass";
+    } else {
+        req.body.userGame2Answer = "fail";
+    }
 
     let game2result = new Result();
 

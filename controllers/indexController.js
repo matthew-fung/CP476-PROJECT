@@ -10,7 +10,26 @@ exports.indexGET = function(req,res) {
 };
 
 exports.resultsGET = function(req,res) {
-    res.send('RESULTS GET');
+    game1result = req.session.game1result;
+    game2result = req.session.game2result;
+    game3result = req.session.game3result;
+    var points = 0;
+    if(game1result == "pass") {
+        points++;
+    }
+    if(game2result == "pass") {
+        points++;
+    }
+    if(game3result == "pass") {
+        points++;
+    }
+
+    if(points < 3 ) {
+        res.render('resultsFail');
+    } else {
+        res.render('resultsPass');
+    }
+        
 };
 
 exports.shareGET = function(req,res) {
