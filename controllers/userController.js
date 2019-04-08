@@ -86,23 +86,3 @@ exports.loginPOST = function (req, res) {
         res.send('error logging in');
     }
 };
-
-
-// UPDATE
-exports.updateGET = function (req, res) {
-    res.send('NOT IMPLEMENTED: user update GET');
-};
-
-exports.updatePOST = function (req, res) {
-    res.send('NOT IMPLEMENTED: user update POST');
-};
-
-
-// DELETE
-exports.deleteGET = function (req, res) {
-    res.send('NOT IMPLEMENTED: user delete GET');
-};
-
-exports.deletePOST = function (req, res) {
-    res.send('NOT IMPLEMENTED: user delete POST');
-};

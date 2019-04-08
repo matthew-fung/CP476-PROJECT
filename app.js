@@ -59,7 +59,7 @@ app.use(bodyParser.urlencoded({
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
-app.use('/game1', playRouter);
+app.use('/play', playRouter);
 app.use('/home', homeRouter);
 app.use('/logout', logoutRouter);
 app.use('/results', resultRouter);

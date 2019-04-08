@@ -1,5 +1,5 @@
 /**
- * play1.js - Handles gameplay for play1.html
+ * play1.js - Handles gameplay for play1
  */
 
 //TODO: Set this to false before production - this outputs each step to console

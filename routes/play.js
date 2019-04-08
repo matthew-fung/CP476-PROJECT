@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const playController = require('../controllers/playController');
 
+
 router.get('/game1', playController.game1GET);
 router.get('/game2', playController.game2GET);
 router.get('/game3', playController.game3GET);
