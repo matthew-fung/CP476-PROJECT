@@ -94,5 +94,22 @@ exports.game3GET = function (req, res) {
 };
 
 exports.game3POST = function (req, res) {
-    res.send('GAME 3 POST');
+    userGame3Answer = req.body.userGame3Answer;
+
+    let game3result = new Result();
+
+    game3result.userID = req.session.userId;
+    game3result.game3 = req.body.userGame2Answer;
+
+    game3result.save(function (error, game2result) {
+        if (error) {
+            console.log("Game 3 result error:" + error);
+            res.send('error saving game3 result');
+        } else {
+            console.log("game 3 result stored successfully");
+            req.session.game3result = req.body.userGame3Answer;
+            req.session.save();
+            res.redirect('/results');
+        };
+    });
 };

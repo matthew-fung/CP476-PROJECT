@@ -34,9 +34,9 @@ function startCountdown(duration, circleTime) {
         document.querySelector('#questionTime').textContent = seconds;
         if (timer == circleTime) {
             console.log('timer = circletime');
-            document.querySelector('#circle').src = "assets/circles/green-circle.png";
+            document.querySelector('#circle').src = "/assets/circles/green-circle.png";
         } else {
-          document.querySelector('#circle').src = "assets/circles/red-circle.png";
+          document.querySelector('#circle').src = "/assets/circles/red-circle.png";
         }
         // user must click green circle within 2 seconds
         if(timer <= circleTime && timer >= circleTime - 1 && isClicked) {
@@ -67,9 +67,27 @@ function circleClickHandler() {
       isClicked = false;
       circle.removeEventListener('click', circleClickHandler);
     }
-    if(debug) {
-      console.log("Clicked on green: " + isClicked);
+
+    if(isClicked) {
+        console.log('clicked, now sending post request');
+        var xhttp = new XMLHttpRequest();
+        var params = "userGame3Answer=pass"
+        xhttp.open("POST", "http://localhost:5000/play/game3", true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send(params);
+        console.log('sent!');
+    } else {
+        console.log('not clicked, now sending post request');
+        var xhttp = new XMLHttpRequest();
+        var params = "userGame3Answer=fail"
+        xhttp.open("POST", "/play/game3", true);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send(params);
+        console.log('sent!');
     }
+
+    window.location.replace("/results");
+
 
 }
 
