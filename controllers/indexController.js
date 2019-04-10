@@ -71,3 +71,7 @@ exports.logoutGET = function (req, res) {
     }
     res.redirect('/');
 };
+
+exports.resultGET = function (req, res){
+    
+}
