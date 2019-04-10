@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
-var user = require('./user-mongo');
 
 const Schema = mongoose.Schema;
 
 var LocationSchema = Schema({
-    userID: { type: Schema.Types.ObjectId, ref: 'users' },
+    userID: {type: String},
     locationName: {type: String, required: true},
     address: {type: String, required: true}
 });
