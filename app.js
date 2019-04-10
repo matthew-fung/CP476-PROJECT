@@ -17,9 +17,16 @@ const mongoose = require('mongoose');
 // enable bodyParser to get params from GET/POST requests
 // example: https://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters
 
+var options = { keepAlive: 300000, connectTimeoutMS: 30000, useNewUrlParser: true};
+
 // connect to mongodb
-var mongoDB = "mongodb://beforeyoudrive-mongo-acc:cp476$$$@ds237955.mlab.com:37955/beforeyoudrive-io";
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+var mongoDB = "mongodb://@ds237955.mlab.com:37955/beforeyoudrive-io";
+mongoose.connect(mongoDB, {
+  useNewUrlParser: true,
+  auth: {
+    user: 'beforeyoudrive-mongo-acc',
+    password: 'cp476$$$'
+  });
 var db = mongoose.connection;
 
 // check connection works
