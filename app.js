@@ -18,7 +18,7 @@ const mongoose = require('mongoose');
 // example: https://stackoverflow.com/questions/5710358/how-to-retrieve-post-query-parameters
 
 // connect to mongodb
-var mongoDB = "mongodb://beforeyoudrive-mongo-acc:cp476$$$@ds237955.mlab.com:37955/beforeyoudrive-io";
+var mongoDB = "mongodb://herokubfud:cp47611@ds237955.mlab.com:37955/beforeyoudrive-io";
 mongoose.connect(mongoDB, {useNewUrlParser: true },function(err)=>{
         if(err) {
             console.log('Some problem with the connection ' +err);
