@@ -9,6 +9,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
 
 var encrypt = function (password, salt) {
     var hash = crypto.createHmac('sha256', salt);
@@ -34,6 +35,7 @@ exports.registerPOST = function (req, res, e) {
     var passSalt = salt();
     var passHash = encrypt(req.body.password, passSalt);
 
+    user._id = new mongoose.Types.ObjectId();
     user.name = req.body.name;
     user.password = passHash;
     user.salt = passSalt;

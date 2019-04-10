@@ -1,15 +1,12 @@
 var mongoose = require('mongoose');
+var user = require('./user-mongo');
 
-//var mongoDB = "mongodb://localhost:27017/mydb";
-//mongoose.connect(mongoDB, { useNewUrlParser: true });
+const Schema = mongoose.Schema;
 
-//var db = mongoose.connection;
-//    locationID: {type: String, unique: true, required: true, dropDups: true},
-var Schema = mongoose.Schema({
-
+var LocationSchema = Schema({
+    userID: { type: Schema.Types.ObjectId, ref: 'users' },
     locationName: {type: String, required: true},
-    userID: {type: String, required: true},
     address: {type: String, required: true}
-})
+});
 
-var location = module.exports = mongoose.model('locations', Schema);
+var location = module.exports = mongoose.model('locations', LocationSchema);

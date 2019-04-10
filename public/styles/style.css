@@ -175,3 +175,15 @@ p {
     margin-left: auto;
     margin-right: auto;
 }
+
+.error {
+    background-image: url(../assets/minus-circle.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.valid {
+    background-image: url(../assets/check-circle.svg);
+    background-position: right;
+    background-repeat: no-repeat;
+}
