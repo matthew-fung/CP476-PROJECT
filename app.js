@@ -19,13 +19,7 @@ const mongoose = require('mongoose');
 
 // connect to mongodb
 var mongoDB = "mongodb://herokubfud:cp47611@ds237955.mlab.com:37955/beforeyoudrive-io";
-mongoose.connect(mongoDB, {useNewUrlParser: true },function(err)=>{
-        if(err) {
-            console.log('Some problem with the connection ' +err);
-        } else {
-            console.log('The Mongoose connection is ready');
-        }
-    });
+mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 
 // check connection works
